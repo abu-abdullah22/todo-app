@@ -1,8 +1,6 @@
 const Tabs = () => {
     return (
-        <div>
-            
-        </div>
+        <nav></nav>
     );
 };
 
