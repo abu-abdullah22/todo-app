@@ -1,6 +1,8 @@
 const Header = () => {
     return (
-       <header></header>
+        <header>
+            <h1 className="text-gradient">You have # open tasks.</h1>
+        </header>
     );
 };
 
