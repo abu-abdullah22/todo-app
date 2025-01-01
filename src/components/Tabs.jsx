@@ -14,7 +14,7 @@ const Tabs = ({ todos }) => {
                 todos.filter(val => val.complete).length ;
 
                 return (
-                    <button className="tab-button" key={tabIndex}><h4>{tab} <span>{numOfTasks}</span></h4></button>
+                    <button className="tab-button" key={tabIndex}><h4>{tab} <span>({numOfTasks})</span></h4></button>
                 )
             })}
         </nav>
