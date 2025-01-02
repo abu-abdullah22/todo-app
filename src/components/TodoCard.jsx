@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const TodoCard = ({todoIndex, todos}) => {
 
     const todo = todos[todoIndex] ;
@@ -7,7 +8,7 @@ const TodoCard = ({todoIndex, todos}) => {
         <div className="card todo-item">
             <p>{todo.input}</p>
             <div className="todo-button">
-                <button>
+                <button disabled={todo.complete}>
                     <h6>Done</h6>
                 </button>
                 <button>
