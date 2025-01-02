@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
-const TodoCard = ({todoIndex, todos}) => {
+const TodoCard = ({todo}) => {
 
-    const todo = todos[todoIndex] ;
-  
     
     return (
         <div className="card todo-item">

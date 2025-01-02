@@ -1,7 +1,10 @@
 const TodoInput = () => {
     return (
-        <div>
-            
+        <div className="input-container">
+            <input type="text" placeholder="Add Task" />
+            <button>
+            <i className="fa-solid fa-plus"></i>
+            </button>
         </div>
     );
 };

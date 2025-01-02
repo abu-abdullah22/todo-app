@@ -6,7 +6,8 @@ import TodoCard from "./TodoCard";
 
 const TodoList = ({ todos }) => {
 
-  const tab = 'All';
+  const tab = 'Open';
+
   const filteredTodoList = tab === 'All' ?
     todos :
     tab === 'Completed' ?
@@ -16,9 +17,11 @@ const TodoList = ({ todos }) => {
 
   return (
     <>
-      {todos.map((todo, todoIndex) => {
+      {filteredTodoList.map((todo, todoIndex) => {
         return (
-          <TodoCard key={todoIndex} todoIndex={todoIndex} todos={todos} />
+          <TodoCard
+            key={todoIndex}
+            todo={todo} />
         )
       })}
     </>
