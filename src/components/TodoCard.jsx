@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-const TodoCard = ({todo}) => {
+const TodoCard = ({todo, handleDeleteTodo, todoIndex}) => {
 
     
     return (
@@ -9,7 +9,7 @@ const TodoCard = ({todo}) => {
                 <button disabled={todo.complete}>
                     <h6>Done</h6>
                 </button>
-                <button>
+                <button onClick={()=> handleDeleteTodo(todoIndex)}>
                     <h6>Delete</h6>
                 </button>
             </div>
