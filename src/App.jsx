@@ -34,7 +34,7 @@ function App() {
     <>
       <Header todos={todos} />
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos} />
-      <TodoList todos={todos} />
+      <TodoList selectedTab={selectedTab} todos={todos} />
       <TodoInput handleAddTodo={handleAddTodo} />
     </>
   )

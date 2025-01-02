@@ -4,13 +4,12 @@ import TodoCard from "./TodoCard";
 
 /* eslint-disable react/prop-types */
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, selectedTab }) => {
 
-  const tab = 'All';
 
-  const filteredTodoList = tab === 'All' ?
+  const filteredTodoList = selectedTab === 'All' ?
     todos :
-    tab === 'Completed' ?
+    selectedTab === 'Completed' ?
       todos.filter(val => val.complete) :
       todos.filter(val => !val.complete);
 
