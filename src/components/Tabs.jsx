@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-const Tabs = ({ todos }) => {
+const Tabs = ({ todos, selectedTab, setSelectedTab }) => {
 
 
 
@@ -14,9 +14,13 @@ const Tabs = ({ todos }) => {
                 todos.filter(val => val.complete).length ;
 
                 return (
-                    <button className="tab-button" key={tabIndex}><h4>{tab} <span>({numOfTasks})</span></h4></button>
+                    <button onClick={()=> {
+                        setSelectedTab(tab)
+                    }} className={"tab-button " + (tab === selectedTab ? 'tab-selected' : ' ')} key={tabIndex}><h4>{tab} <span>({numOfTasks})</span></h4></button>
                 )
             })}
+
+            <hr />
         </nav>
     );
 };
