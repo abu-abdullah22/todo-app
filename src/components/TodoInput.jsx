@@ -1,9 +1,20 @@
-const TodoInput = () => {
+import { useState } from "react";
+
+/* eslint-disable react/prop-types */
+const TodoInput = ({ handleAddTodo }) => {
+    const [inputValue, setInputValue] = useState('');
+    console.log(inputValue);
     return (
         <div className="input-container">
-            <input type="text" placeholder="Add Task" />
-            <button>
-            <i className="fa-solid fa-plus"></i>
+            <input value={inputValue} onChange={(e) => {
+                    setInputValue(e.target.value)
+                }}
+                type="text" placeholder="Add Task" />
+            <button onClick={() => {
+                if(!inputValue) {return} 
+                handleAddTodo(inputValue)
+            }}>
+                <i className="fa-solid fa-plus"></i>
             </button>
         </div>
     );
