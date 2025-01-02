@@ -13,7 +13,7 @@ function App() {
   //   { input: 'Say hi to gran gran', complete: true },
   // ]
 
-  const [todos, setTodos] = useState([]) ; 
+  const [todos, setTodos] = useState([{input: 'Hello! Add your first todo!', complete: true}]) ; 
 
   function handleAddTodo (newTodo) {
     const newTodoList = [...todos, {input: newTodo, complete: false}] ;

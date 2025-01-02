@@ -6,7 +6,7 @@ import TodoCard from "./TodoCard";
 
 const TodoList = ({ todos }) => {
 
-  const tab = 'Open';
+  const tab = 'All';
 
   const filteredTodoList = tab === 'All' ?
     todos :

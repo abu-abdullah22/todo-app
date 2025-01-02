@@ -3,7 +3,7 @@ import { useState } from "react";
 /* eslint-disable react/prop-types */
 const TodoInput = ({ handleAddTodo }) => {
     const [inputValue, setInputValue] = useState('');
-    console.log(inputValue);
+    
     return (
         <div className="input-container">
             <input value={inputValue} onChange={(e) => {
@@ -11,8 +11,9 @@ const TodoInput = ({ handleAddTodo }) => {
                 }}
                 type="text" placeholder="Add Task" />
             <button onClick={() => {
-                if(!inputValue) {return} 
+                if(!inputValue) {return}
                 handleAddTodo(inputValue)
+                setInputValue('')
             }}>
                 <i className="fa-solid fa-plus"></i>
             </button>
