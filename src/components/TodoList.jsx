@@ -4,7 +4,7 @@ import TodoCard from "./TodoCard";
 
 /* eslint-disable react/prop-types */
 
-const TodoList = ({ todos, selectedTab, handleDeleteTodo }) => {
+const TodoList = ({ todos, selectedTab, handleDeleteTodo, handleCompleteTodo }) => {
 
 
   const filteredTodoList = selectedTab === 'All' ?
@@ -20,7 +20,10 @@ const TodoList = ({ todos, selectedTab, handleDeleteTodo }) => {
         return (
           <TodoCard
             key={todoIndex}
-            todo={todo} handleDeleteTodo={handleDeleteTodo} todoIndex={todoIndex}/>
+            todo={todo} 
+            handleDeleteTodo={handleDeleteTodo} 
+            handleCompleteTodo={handleCompleteTodo}
+            todoIndex={todoIndex}/>
         )
       })}
     </>

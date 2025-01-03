@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-const TodoCard = ({todo, handleDeleteTodo, todoIndex}) => {
+const TodoCard = ({todo, handleDeleteTodo, todoIndex, handleCompleteTodo}) => {
 
     
     return (
         <div className="card todo-item">
             <p>{todo.input}</p>
             <div className="todo-button">
-                <button disabled={todo.complete}>
+                <button onClick={()=> handleCompleteTodo(todoIndex)} disabled={todo.complete}>
                     <h6>Done</h6>
                 </button>
                 <button onClick={()=> handleDeleteTodo(todoIndex)}>
