@@ -13,45 +13,55 @@ function App() {
   //   { input: 'Say hi to gran gran', complete: true },
   // ]
 
-  const [todos, setTodos] = useState([{input: 'Hello! Add your first todo!', complete: true}]) ; 
+  const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo!', complete: true }]);
 
-  const [selectedTab, setSelectedTab] = useState('All') ;
+  const [selectedTab, setSelectedTab] = useState('All');
 
-  function handleAddTodo (newTodo) {
-    const newTodoList = [...todos, {input: newTodo, complete: false}] ;
-    setTodos(newTodoList) ;
-    handleSave(newTodoList) ;
+  function handleAddTodo(newTodo) {
+    const newTodoList = [...todos, { input: newTodo, complete: false }];
+    setTodos(newTodoList);
+    handleSave(newTodoList);
   }
 
-  function handleCompleteTodo (index) {
-    //update/ edit / modify 
-    let newTodoList = [...todos] ;
-    let completedTodo = todos[index] ; 
-    completedTodo['complete'] = true ;
-    newTodoList[index] = completedTodo ;
-    setTodos[newTodoList] ;
-    handleSave(newTodoList) ;
+  // function handleCompleteTodo(index) {
+  //   //update/ edit / modify 
+  //   let newTodoList = [...todos];
+  //   let completedTodo = todos[index];
+  //   completedTodo['complete'] = true;
+  //   newTodoList[index] = completedTodo;
+  //   setTodos[newTodoList];
+  //   handleSave(newTodoList);
+  // }
+  function handleCompleteTodo(index) {
+
+    const newTodoList = todos.map((todo, i) =>
+      i === index ? { ...todo, complete: true } : todo
+    );
+
+    setTodos(newTodoList); // Update state
+    handleSave(newTodoList); // Save to localStorage
   }
 
-  function handleDeleteTodo (index) {
-    let newTodoList = todos.filter((val, valIndex)=> {
-      return valIndex !== index ;
+
+  function handleDeleteTodo(index) {
+    let newTodoList = todos.filter((val, valIndex) => {
+      return valIndex !== index;
     })
 
-    setTodos(newTodoList) ;
-    handleSave(newTodoList) ;
+    setTodos(newTodoList);
+    handleSave(newTodoList);
 
   }
 
   function handleSave(currTodos) {
-    localStorage.setItem('todo-app', JSON.stringify({todos : currTodos}))
+    localStorage.setItem('todo-app', JSON.stringify({ todos: currTodos }))
   }
 
-  useEffect(()=>{
-    if (!localStorage || !localStorage.getItem('todo-app')) {return} 
+  useEffect(() => {
+    if (!localStorage || !localStorage.getItem('todo-app')) { return }
     let db = JSON.parse(localStorage.getItem('todo-app'))
     setTodos(db.todos)
-  },[])
+  }, [])
 
 
   return (

@@ -23,7 +23,7 @@ const TodoList = ({ todos, selectedTab, handleDeleteTodo, handleCompleteTodo }) 
             todo={todo} 
             handleDeleteTodo={handleDeleteTodo} 
             handleCompleteTodo={handleCompleteTodo}
-            todoIndex={todoIndex}/>
+            todoIndex={todos.findIndex(val=> val.input ===todo.input)}/>
         )
       })}
     </>
